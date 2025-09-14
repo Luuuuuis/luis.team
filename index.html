@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luis Bros - Softwareentwicklung</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Luis Bros - Softwareentwicklung</div>
+        <button class="theme-toggle" id="themeToggle">🌙 Dark</button>
+    </header>
+
+    <main class="main-index">
+        <section class="hero-section">
+            <h1>Innovative Softwarelösungen</h1>
+            <p>Als Einzelunternehmer bin ich Ihr Partner für alle Projekte rund um die Softwareentwicklung. Aus neuen Ideen entstehen bei mir immer wieder innovative Projekte und maßgeschneiderte Lösungen.</p>
+            <p>Von der ersten Konzeption bis zur finalen Umsetzung begleite ich Sie durch den gesamten Entwicklungsprozess und schaffe digitale Produkte, die begeistern.</p>
+        </section>
+
+        <section class="projects-section">
+            <h2>Unsere Projekte</h2>
+            <div class="projects-container">
+                <div class="projects-list">
+                    <a href="https://effner.app" target="_blank" class="project-card">
+                        <h3><img src="https://effner.app/android-icon-192x192.png" alt="EffnerApp" class="project-icon">EffnerApp</h3>
+                        <p>Eine innovative mobile Anwendung, die Schülern des Josef-Effner-Gymnasiums eine moderne Plattform für den digitalen Schulalltag bietet. Mit Features wie Stundenplan, Klausurenübersicht und aktuellem Vertretungsplan.</p>
+                        <div class="project-link">→ Zur App</div>
+                    </a>
+                    <div class="project-card">
+                        <h3>PubCrawl.Bar</h3>
+                        <p>Die Plattform für StuVs zu Planung von Pub Crawls. Studenten können lokale Pub Crawls entdecken und direkt über die Plattform Tickets kaufen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Luis Bros - Softwareentwicklung | <a href="impressum.html">Impressum</a></p>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // Check for saved theme or default to light
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        updateToggleButton(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateToggleButton(newTheme);
+        });
+
+        function updateToggleButton(theme) {
+            if (theme === 'dark') {
+                themeToggle.textContent = '☀️ Light';
+            } else {
+                themeToggle.textContent = '🌙 Dark';
+            }
+        }
+    </script>
+</body>
+</html>
